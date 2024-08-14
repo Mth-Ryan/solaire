@@ -1,0 +1,37 @@
+:root {
+  /* Solaire uses hsl to colors.
+   * You just need to provide the hue and the saturation
+   * for the theme colors. The lighness and opacity are set as needed.
+   */
+
+  /* Base for the colors */
+  --color-primary-hs: 210 89;
+  --color-secondary-hs: 215 16;
+  --color-content-hs: 210 20;
+
+  /* Helper colors */
+  --color-primary-base: hsl(var(--color-primary-hs) 50);
+  --color-backgroud: hsl(var(--color-content-hs) 98);
+  --color-foreground-base: hsl(var(--color-content-hs) 20);
+
+  /* Base size units */
+  --base-unit: .25rem;
+}
+
+/* Light and dark support */
+:root[data-theme=light] {
+  --color-backgroud: hsl(var(--color-content-hs) 98);
+  --color-foreground-base: hsl(var(--color-content-hs) 20);
+}
+
+:root[data-theme=dark] {
+  --color-backgroud: hsl(var(--color-content-hs) 20);
+  --color-foreground-base: hsl(var(--color-content-hs) 80);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-backgroud: hsl(var(--color-content-hs) 20);
+    --color-foreground-base: hsl(var(--color-content-hs) 80);
+  }
+}
